@@ -1,30 +1,24 @@
 <script lang="ts">
-	export let name: string;
+  let count = 0;
+
+  function increment() {
+    count += 1;
+  }
+
+  function decrement() {
+    count -=1;
+  }
+
+  function reset() {
+    count = 0;
+  }
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+<main class='flex flex-col items-center'>
+  <h1 class='text-3xl'>Your count is at {count}</h1>
+  <section class='m-2'>
+    <button class='border py-2 px-4 bg-green-50 m-1' on:click={increment}>increment</button>
+    <button class='border py-2 px-4 bg-green-50 m-1' on:click={decrement}>decrement</button>
+    <button class='border py-2 px-4 bg-green-50 m-1' on:click={reset}>reset</button>
+  </section>
 </main>
-
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
